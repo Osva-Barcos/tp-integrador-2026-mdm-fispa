@@ -48,6 +48,10 @@ digitales (marketplaces, lectores de código de barras) lo tomarían como un GTI
 ausente se detecta, uno falso contamina. La opción (c) no es viable porque la web no publica códigos
 de barras. Si una lista futura trae EAN válidos, se cargan solos, sin tocar el código.
 
+**Por qué no se elimina la columna.** EAN13 forma parte del esquema obligatorio del Anexo 2
+(columna 8): eliminarla haría que la base no cumpla el Entregable 1. Se mantiene vacía y con la
+validación activa, para que se complete sola cuando el proveedor entregue códigos válidos.
+
 ## D3 — Descripcion_Optimizada generada por reglas
 
 **Contexto.** Hay que generar 2.184 descripciones de una línea, de 70 a 90 caracteres
