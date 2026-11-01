@@ -235,10 +235,11 @@ def limpiar_oem(valor):
     """
     texto = limpiar_texto(valor)
     # Variantes vistas en la lista: REF ORIG, REF.ORIG., REF. ORIG, REF ORIGINAL, REF ORIGI,
-    # REF ORI, REF ORlG (L por error de tipeo), REF ORG, REF OEM; a veces seguidas de ":".
+    # REF ORI, REF ORlG (L por error de tipeo), REF ORG, REF OEM, y también "RE ORIG" y
+    # "REG ORIG" (sin la F o con G por error de tipeo); a veces seguidas de ":".
     # (?![A-Za-z0-9]) obliga a cortar en palabra completa (evita dejar restos como "INAL"
     # o "I"); el "_" de "REF.ORIG_" se descarta junto con los espacios, puntos y ":".
-    texto = re.sub(r"^REF\W*(ORIGINAL|ORIGI|ORIG|ORLG|ORI|ORG|OEM)(?![A-Za-z0-9])[\s.:_]*", "",
+    texto = re.sub(r"^RE[FG]?\W*(ORIGINAL|ORIGI|ORIG|ORLG|ORI|ORG|OEM)(?![A-Za-z0-9])[\s.:_]*", "",
                    texto,
                    flags=re.IGNORECASE)
     texto = re.sub(r"\s+-\s+", " | ", texto)

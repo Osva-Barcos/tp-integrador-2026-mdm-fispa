@@ -1,5 +1,5 @@
 ﻿CONTROL DE CALIDAD - BASE MAESTRA FISPA
-Fecha: 01/11/2026 15:57
+Fecha: 01/11/2026 16:04
 
 [OK]     Artículos en la base maestra: 2184 (igual al maestro de compras)
 [OK]     Cruzados con Fispa (2042) + excepciones (142) = 2184

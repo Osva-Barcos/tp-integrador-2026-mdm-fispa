@@ -245,7 +245,8 @@ en ningún rubro.
 
 **Contexto.** `Cod.Ref.Aux` trae el prefijo "REF ORIG" en el 80% de las filas, con variantes
 (`REF.ORIG`, `REF.ORIG.`, `REF. ORIG`, `REF.ORIG_`, `REF.ORIG:`, `REF ORIGINAL`, `REF ORIGI`,
-`REF ORI`, `REF ORlG`, `REF ORG`, `REF OEM`), y mezcla separadores. `Aplicacion` escribe las
+`REF ORI`, `REF ORlG`, `REF ORG`, `REF OEM`, `RE ORIG`, `REG ORIG`), y mezcla separadores.
+`Aplicacion` escribe las
 cilindradas sin punto ("1 6 16V") en 1.344 filas.
 
 **Opciones.** (a) Normalizar las cilindradas de Aplicacion_Completa ("1 6" → "1.6"); (b) quitar el
@@ -279,9 +280,19 @@ Esa misma limpieza general se aplica también a Cruces_OEM, antes de quitar el p
 **Verificación (01/11/2026, sobre las 3.668 filas de la lista).**
 - Contenido alfanumérico del original sin prefijo vs el limpio: **0 diferencias**.
 - Filas con distinta cantidad de dígitos antes y después: **0**.
-- Ningún valor limpio empieza con restos del prefijo. Un caso empieza con "I-"
-  (`I-032-121065-D`), pero es un código real.
+- Ningún valor limpio empieza con restos del prefijo (se busca `RE`, `REF` o `REG` seguido de
+  `ORIG`, `ORG` u `OEM`). Un caso empieza con "I-" (`I-032-121065-D`), pero es un código real.
 - Valores vacíos generados por la limpieza: 24, y los 24 eran solo guiones ("----------").
+- Corrección posterior: al leer toda la columna aparecieron `RE ORIG` y `REG ORIG` en 3 filas
+  (30229, 60005, 79019). La primera verificación solo buscaba "REF" y no las detectó. Se
+  agregaron las dos variantes y la verificación ahora busca las tres formas.
+
+**Contenido mixto (se informa, no se modifica).** Al leer las 1.906 filas con dato, el 87% son
+códigos de automotrices o de fabricantes de repuestos, que es lo que pide el Anexo 2
+("Bosch, Marelli, marcas de autos"). El 13% restante trae también especificaciones técnicas
+(`3 BAR 90L H`), notas comerciales (`Compatible Bombas M`, `REEMPLAZA AL…`) o solo una marca. Es
+el texto libre que carga Fispa y no se separa, porque decidir qué es código y qué es nota sería
+interpretar.
 
 ## D11 — Reparación de caracteres rotos en los textos de Fispa
 
