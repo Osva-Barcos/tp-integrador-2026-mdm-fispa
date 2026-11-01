@@ -28,10 +28,22 @@ from transformar import limpiar_texto
 CONECTORES = {"DE", "DEL", "PARA", "Y", "CON", "C/", "P/", "LA", "EL", "LOS", "LAS", "-"}
 
 # Abreviaturas habituales del ERP que forman parte del tipo de pieza (no de la aplicación).
-ABREVIATURAS_TIPO = {"JGO", "JUEGO", "KITS", "KIT", "ELECTRO", "ENC", "PREC", "INY", "INYECT",
+# "KIT" no está: solo se quita si el tipo de Fispa o la categoría también lo dicen
+# (si no, "KIT COMPLETO DE ACCESORIOS" perdería la palabra "KIT").
+ABREVIATURAS_TIPO = {"JGO", "JUEGO", "ELECTRO", "ENC", "PREC", "INY", "INYECT",
                      "REG", "TEMP", "RPM", "ORING", "ORINGS", "O", "RINGS"}
 
 SEPARADORES_FINALES = " -/,.;:(+|&"
+
+# Palabras que no pueden quedar al final cuando el recorte a 90 corta una frase
+# ("...BRAVO BRAVA Y", "...CON BOMBA DE"). No incluye "A" ni "E": son modelos o siglas
+# reales ("CORSA A", "VECTRA A", "1.8 I E").
+CONECTORES_FINALES = {"Y", "DE", "DEL", "CON", "SIN", "EN", "LA", "LAS", "LOS", "EL", "AL",
+                      "PARA", "POR", "MONTA"}
+
+# Modelos que se nombran con un número de un dígito. Después de ellos no se unen dígitos
+# como cilindrada: "RAV 4 2" no es "RAV 4.2" ni "MAZDA 3 5 6" es "MAZDA 3.5 6".
+MODELOS_UN_DIGITO = {"RAV", "MAZDA", "H", "SERIE", "CLASE"}
 
 # Palabras que anuncian un código; si el código se quita, se quitan con él ("OEM 12498965").
 MARCADORES_CODIGO = {"OEM", "ORIG", "ORIGINAL", "REF", "COD", "CODIGO", "NRO"}
@@ -59,14 +71,46 @@ def _parecidas(a, b):
     return len(corta) >= 3 and larga.startswith(corta)
 
 
+def _una_letra_de_diferencia(a, b):
+    """
+    True si las dos palabras (de 6 letras o más) difieren en una sola letra: una de más,
+    una de menos o una cambiada. Detecta errores de tipeo del ERP en el tipo de pieza:
+    "IGINICION" ~ "IGNICION". Es limpieza de texto dentro de la misma fila, no un cruce.
+    """
+    if min(len(a), len(b)) < 6 or abs(len(a) - len(b)) > 1 or a == b:
+        return False
+    if len(a) == len(b):
+        return sum(x != y for x, y in zip(a, b)) == 1
+    corta, larga = sorted((a, b), key=len)
+    return any(larga[:i] + larga[i + 1:] == corta for i in range(len(larga)))
+
+
 def _normalizar_numeros(texto):
     """
     La lista del proveedor (y algunos nombres del ERP) escriben las cilindradas sin punto:
     "1 6 16V" en vez de "1.6 16V". Unimos un dígito suelto + espacio + dígito suelto con un
     punto. No se toca un dígito que ya forma parte de un número con punto o coma ("2 1.5" no
     pasa a "2.1.5"; "1,6 8V" no pasa a "1,6.8V").
+    Tampoco se unen después de un modelo de un dígito (MODELOS_UN_DIGITO), ni en la cadena de
+    dígitos sueltos que lo sigue: "MAZDA 3 5 6 2 0" queda igual.
     """
-    return re.sub(r"(?<![\w.,])(\d) (\d)(?![\d.,])", r"\1.\2", texto)
+    salteado_hasta = -1   # fin del último par que no se unió (para seguir la cadena)
+
+    def unir(m):
+        nonlocal salteado_hasta
+        antes = texto[:m.start()]
+        pegado = antes[-1:] not in ("", " ")              # "H-1 2": el dígito va pegado a "H-"
+        palabra_previa = antes.split(" ")[-1] if pegado else (antes.split() or [""])[-1]
+        # "COROLLA-RAV 4 2" -> se mira "RAV"; "H-1 2" -> se mira "H"
+        palabra_previa = re.split(r"[-/]", palabra_previa.upper().rstrip("-"))[-1]
+        sigue_cadena = (not pegado and re.fullmatch(r"\d", palabra_previa)
+                        and salteado_hasta == m.start() - 1)
+        if palabra_previa in MODELOS_UN_DIGITO or sigue_cadena:
+            salteado_hasta = m.end()
+            return m.group(0)
+        return f"{m.group(1)}.{m.group(2)}"
+
+    return re.sub(r"(?<![\w.,])(\d) (\d)(?![\d.,])", unir, texto)
 
 
 def separar_abreviaturas(texto):
@@ -100,7 +144,8 @@ def quitar_tipo_del_nombre(nombre_erp, palabras_tipo):
     while i < len(tokens):
         p = _palabra(tokens[i])
         es_tipo = (p in CONECTORES or p in ABREVIATURAS_TIPO or p == ""
-                   or any(_parecidas(p, t) for t in palabras_tipo))
+                   or any(_parecidas(p, t) or _una_letra_de_diferencia(p, t)
+                          for t in palabras_tipo))
         if not es_tipo:
             break
         i += 1
@@ -120,6 +165,12 @@ def recortar(texto, maximo):
     # Si quedó un paréntesis abierto sin cerrar, lo sacamos.
     if corte.count("(") > corte.count(")"):
         corte = corte[:corte.rfind("(")].rstrip(SEPARADORES_FINALES)
+    # Si el corte dejó un conector al final ("...BRAVA Y"), también lo sacamos.
+    palabras = corte.split()
+    while len(palabras) > 1 and palabras[-1].upper() in CONECTORES_FINALES:
+        palabras.pop()
+        corte = " ".join(palabras).rstrip(SEPARADORES_FINALES)
+        palabras = corte.split()
     return corte
 
 
@@ -176,7 +227,12 @@ def generar_descripcion(nombre_erp, categoria, descripcion_proveedor=None, cod_a
         # Artículo no cruzado: el nombre del ERP ya tiene la forma [tipo] + [aplicación].
         return recortar(nombre.upper(), config.DESCRIPCION_MAX)
 
-    palabras_tipo = {_palabra(t) for t in (tipo + " " + limpiar_texto(categoria)).split()}
+    # Palabras del tipo y de la categoría; las unidas por "/" también por separado
+    # ("C/KIT" aporta "C/KIT", "C" y "KIT").
+    palabras_tipo = set()
+    for t in (tipo + " " + limpiar_texto(categoria)).split():
+        palabras_tipo.add(_palabra(t))
+        palabras_tipo.update(_palabra(x) for x in t.split("/") if x)
     aplicacion_erp = quitar_tipo_del_nombre(nombre, palabras_tipo)
     aplicacion_prov = quitar_tipo_del_nombre(
         quitar_codigos(_normalizar_numeros(quitar_marca(limpiar_texto(aplicacion_proveedor)))),

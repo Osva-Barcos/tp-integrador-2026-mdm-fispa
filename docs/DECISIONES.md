@@ -84,6 +84,19 @@ aproximadamente, con la forma [Tipo de pieza] + [Aplicación principal], sin rep
 9. Las **abreviaturas pegadas** a la palabra siguiente se separan con un espacio
    (`"JGO JUNTAS INYECT.RENAULT"` → `"JGO JUNTAS INYECT. RENAULT"`). La abreviatura no se
    expande: decidir si `INYECT.` es "inyección" o "inyector" sería interpretar.
+10. Después de un **modelo que se nombra con un dígito** (`RAV`, `MAZDA`, `H-1`, `SERIE`,
+    `CLASE`) no se unen dígitos como cilindrada, ni en la cadena de dígitos sueltos que sigue:
+    `"MAZDA 3 5 6 2 0 2 3"` queda igual (antes salía `"MAZDA 3.5 6.2 0.2 3"`) y
+    `"HYUNDAI H-1 2 5"` queda igual (antes `"H-1.2 5"`).
+11. Una palabra del nombre del ERP que difiere en **una sola letra** de una palabra del tipo de
+    pieza o de la categoría (6 letras o más) se trata como parte del tipo. Así se evita
+    `"BOBINA DE IGNICION IGINICION"`. Es limpieza de texto dentro de la misma fila, no un cruce
+    aproximado de registros.
+12. Si el recorte a 90 deja un **conector al final** (`Y`, `DE`, `DEL`, `CON`, `SIN`, `EN`,
+    `PARA`…), se quita: `"...BRAVO BRAVA Y"` → `"...BRAVO BRAVA"`. No se quitan `A` ni `E`,
+    que son modelos o siglas reales (`CORSA A`, `1.8 I E`).
+13. `KIT` solo se quita del nombre del ERP si el tipo de Fispa o la categoría también lo dicen.
+    Si no, se conserva (`"KIT COMPLETO DE ACCESORIOS"` ya no pierde la palabra `KIT`).
 
 **Criterio.** Es **determinista y reproducible** (misma entrada, misma salida), **gratis**, no
 requiere API key (el administrativo ejecuta todo con doble clic) y cada resultado se puede explicar
@@ -101,6 +114,20 @@ corrigieron 38 y 67 descripciones respectivamente:
   bajar el umbral empezaría a borrar datos reales.
 - Los errores de tipeo del ERP (`TOYOYA`, `CHEVROLER`) no se corrigen: hacerlo sería adivinar.
 
+Sobre las reglas 10 a 13: surgieron de leer las 2.184 descripciones una por una. Corrigieron 50
+descripciones:
+- 2 con cilindradas mal unidas;
+- 10 con palabra duplicada;
+- 32 con conector final;
+- 2 con "KIT" perdido;
+- 1 con carácter mal codificado (D11);
+- 3 en las que una palabra del tipo quedaba repetida en la aplicación: los errores de tipeo
+  `CUMBUSTIBLE` e `INYECCON`, y `BOMBA` después de `C/BOMBA`.
+
+Ninguna otra columna cambió. Casos que se ven raros pero vienen así del origen y no se tocan: `"RAV 4.2"` (el nombre
+del ERP lo escribe así), palabras pegadas en la aplicación de Fispa (`MULTIPUNTOBOSCH`) y el tipo
+en plural cuando Fispa lo nombra así (`FILTROS PARA COMBUSTIBLE`).
+
 **Resultado.**
 - 0 descripciones superan los 90 caracteres, 0 contienen "FISPA", 0 tienen códigos de 6 o más
   dígitos y 0 tienen minúsculas.
@@ -116,7 +143,8 @@ corrigieron 38 y 67 descripciones respectivamente:
 |---|---|---|
 | Antes de las reglas 6 a 9 | 25 | 51 |
 | Después de las reglas 6 y 7 | 24 | 49 |
-| Después de las reglas 8 y 9 (final) | 26 | 53 |
+| Después de las reglas 8 y 9 | 26 | 53 |
+| Después de las reglas 10 a 13 (final) | 26 | 53 |
 
 - Quitar los códigos OEM **no generó ninguna repetida nueva**.
 - Los grupos que aparecieron ya eran el mismo texto escrito distinto. Al estandarizar quedó a la
@@ -231,10 +259,11 @@ Igual que en el resto de los textos, solo se aplica la limpieza general (`limpia
 hace exactamente esto:
 - quita caracteres de control (`_x001F_`);
 - colapsa espacios dobles y recorta los extremos;
-- repara dos caracteres rotos con evidencia del original (detalle en D11):
+- repara caracteres rotos con evidencia del original (detalle en D11):
   - `O?RINGS` / `OïRINGS` → `O'RINGS`, porque la web de Fispa escribe "KIT FILTROS Y O'RINGS";
   - un `?` aislado entre espacios → ` - `, porque ocupa el lugar de un separador perdido
-    (`2005 ? 2016`).
+    (`2005 ? 2016`);
+  - `Â´` → `´`, el acento agudo leído con la codificación equivocada.
 
 Esa misma limpieza general se aplica también a Cruces_OEM, antes de quitar el prefijo.
 
@@ -269,6 +298,8 @@ También la Categoría del ERP dice `KITS DE FILTROS Y OïRINGS` (45 artículos)
 **Decisión.** (b):
 - `O?RINGS` y `OïRINGS` → `O'RINGS`.
 - Un `?` aislado entre espacios → ` - `.
+- `Â´` → `´`. Es el error clásico de leer un texto UTF-8 con otra codificación. Apareció en 1
+  nombre del ERP (`KA 1.0 Â´99`).
 - El resto de los `?` queda como está.
 - La Categoría `OïRINGS` **no se modifica**.
 

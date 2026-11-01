@@ -1,192 +1,192 @@
-01/11/2026 15:25:03  INFO     === INICIO DEL PROCESO: BASE MAESTRA FISPA ===
-01/11/2026 15:25:03  INFO     [1/5] Leyendo archivos de la carpeta 'entrada'...
-01/11/2026 15:25:04  INFO     ERP1 (ventas): 2184 filas leídas
-01/11/2026 15:25:04  INFO     ERP2 (compras): 2184 filas leídas
-01/11/2026 15:25:04  INFO     Lista proveedor: encabezado en fila 9, 3668 artículos leídos
-01/11/2026 15:25:04  INFO     [2/5] Uniendo reportes del ERP y cruzando con la lista de Fispa...
-01/11/2026 15:25:04  INFO     Unión ERP1 + ERP2: 2184 artículos activos
-01/11/2026 15:25:04  INFO     Columnas 'Cod.Ref.Aux' y 'Referencia' son idénticas: se usa 'Cod.Ref.Aux'.
-01/11/2026 15:25:04  INFO     Columnas 'Aplicacion' y 'Cod.Linea' son idénticas: se usa 'Aplicacion'.
-01/11/2026 15:25:04  WARNING  Código de proveedor '120107' compartido por varios SKU: 120103 FISPA, 120107 FISPA (se enriquecen todos; revisar con Compras)
-01/11/2026 15:25:04  WARNING  Código de proveedor 'M1015' compartido por varios SKU: M1015 FISPA, M1023 FISPA (se enriquecen todos; revisar con Compras)
-01/11/2026 15:25:04  INFO     Cruce con lista del proveedor: 2042 cruzados, 142 sin cruzar
-01/11/2026 15:25:04  INFO     Excepción 10504 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '10504' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 14000 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '14000' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 14001 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '14001' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 14010 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '14010' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 14110 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '14110' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 14111 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '14111' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 14114 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '14114' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15001 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15001' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15002 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15002' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15003 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15003' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15004 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15004' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15005 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15005' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15006 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15006' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15007 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15007' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15008 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15008' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15009 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15009' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15010 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15010' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15011 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15011' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15012 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15012' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15013 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15013' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15014 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15014' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15015 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15015' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15017 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15017' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15019 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15019' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15020 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15020' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15021 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15021' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15022 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15022' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15023 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15023' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15024 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15024' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15025 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15025' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15026 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15026' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15027 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15027' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15028 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15028' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15029 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15029' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15030 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15030' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15031 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15031' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15034 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15034' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15035 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15035' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15037 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15037' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15038 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15038' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15040 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15040' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15043 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15043' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15047 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15047' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15051 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15051' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15053 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15053' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15054 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15054' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15055 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15055' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15057 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15057' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15058 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15058' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15059 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15059' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15060 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15060' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15062 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15062' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15063 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15063' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15065 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15065' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15066 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15066' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15067 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15067' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15069 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15069' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15070 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15070' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15071 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15071' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 15073 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15073' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 16021 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '16021' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 17001 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '17001' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 17002 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '17002' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 17003 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '17003' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 17017 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '17017' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 18025 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '18025' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 18026 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '18026' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 18107 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '18107' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 212 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '212' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 213 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '213' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22601A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22601A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22602A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22602A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22603A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22603A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22605A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22605A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22606A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22606A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22607A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22607A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22608A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22608A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22609A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22609A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22611A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22611A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22612A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22612A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22613A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22613A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22615A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22615A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22616A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22616A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22618A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22618A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22636A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22636A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22638A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22638A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22639A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22639A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22641A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22641A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22643A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22643A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22655A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22655A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22657A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22657A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22668A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22668A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22706A FISPA | SIN_CODIGO_PROVEEDOR | El artículo no tiene Código Proveedor cargado en el ERP 
-01/11/2026 15:25:04  INFO     Excepción 22735A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22735A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22736A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22736A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22738A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22738A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22740A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22740A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22742A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22742A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22746A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22746A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22749 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22749A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22801A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22801A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22803A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22803A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 22806A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22806A' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 243000 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '243000' no figura en la lista de Fispa | Posible equivalente en lista: 243000A (verificar manualmente)
-01/11/2026 15:25:04  INFO     Excepción 244021 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '244021' no figura en la lista de Fispa | Posible equivalente en lista: 244021A (verificar manualmente)
-01/11/2026 15:25:04  INFO     Excepción 27000 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '27000' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 27004 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '27004' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 285600 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '285600' no figura en la lista de Fispa | Posible equivalente en lista: 285600A (verificar manualmente)
-01/11/2026 15:25:04  INFO     Excepción 285680 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '285680' no figura en la lista de Fispa | Posible equivalente en lista: 285680A (verificar manualmente)
-01/11/2026 15:25:04  INFO     Excepción 285690 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '285690' no figura en la lista de Fispa | Posible equivalente en lista: 285690A (verificar manualmente)
-01/11/2026 15:25:04  INFO     Excepción 285720 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '285720' no figura en la lista de Fispa | Posible equivalente en lista: 285720A (verificar manualmente)
-01/11/2026 15:25:04  INFO     Excepción 285730 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '285730' no figura en la lista de Fispa | Posible equivalente en lista: 285730A (verificar manualmente)
-01/11/2026 15:25:04  INFO     Excepción 285760 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '285760' no figura en la lista de Fispa | Posible equivalente en lista: 285760A (verificar manualmente)
-01/11/2026 15:25:04  INFO     Excepción 285810 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '285810' no figura en la lista de Fispa | Posible equivalente en lista: 285810A (verificar manualmente)
-01/11/2026 15:25:04  INFO     Excepción 285900 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '285900' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 30091 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '30091' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 30107 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '30107' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 3240101 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '3240101' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 3240107 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '3240107' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 3240113 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '3240113' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 556 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '556' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 60020 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60020' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 60025 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60025' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 60026 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60026' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 60031 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60031' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 60032 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60032' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 60036 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60036' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 60038 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60038' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 60039 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60039' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 60040 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60040' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 60050 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60050' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 60056 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60056' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 734 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '734' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción 747 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '747' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción FI 5002001 | NO_FIGURA_EN_LISTA_FABRICANTE | El código 'FI-5002001' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción FIS 020 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código 'FIS-020' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción FIS 022 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código 'FIS-022' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción FIS 032 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código 'FIS-032' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción FIS 039 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código 'FIS-039' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción FIS 040 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código 'FIS-040' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción FIS 096 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código 'FIS-096' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     Excepción FIS 204001 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código 'FIS-204001' no figura en la lista de Fispa 
-01/11/2026 15:25:04  INFO     [3/5] Buscando fotos en el sitio de Fispa (puede tardar unos minutos la primera vez)...
-01/11/2026 15:25:04  INFO     Fotos: recorriendo 96 páginas de rubro del sitio de Fispa...
-01/11/2026 15:25:07  INFO     Fotos: 11 productos no aparecen en los rubros; se consulta su ficha individual
-01/11/2026 15:25:07  INFO     Fotos: 2026 con foto, 14 sin foto, 0 pedidos nuevos al sitio (el resto desde cache)
-01/11/2026 15:25:07  INFO     Sin foto | Cod.Articulo 16020 | El producto no se encontró en el sitio de Fispa
-01/11/2026 15:25:07  INFO     Sin foto | Cod.Articulo 20040E | El sitio de Fispa muestra la imagen genérica (sin foto propia)
-01/11/2026 15:25:07  INFO     Sin foto | Cod.Articulo 20040I | El sitio de Fispa muestra la imagen genérica (sin foto propia)
-01/11/2026 15:25:07  INFO     Sin foto | Cod.Articulo 22629A | El sitio de Fispa muestra la imagen genérica (sin foto propia)
-01/11/2026 15:25:07  INFO     Sin foto | Cod.Articulo 244070 | El producto no se encontró en el sitio de Fispa
-01/11/2026 15:25:07  INFO     Sin foto | Cod.Articulo FIS-001 | El producto no se encontró en el sitio de Fispa
-01/11/2026 15:25:07  INFO     Sin foto | Cod.Articulo FIS-002 | El producto no se encontró en el sitio de Fispa
-01/11/2026 15:25:07  INFO     Sin foto | Cod.Articulo FIS-024 | El producto no se encontró en el sitio de Fispa
-01/11/2026 15:25:07  INFO     Sin foto | Cod.Articulo FIS-025 | El producto no se encontró en el sitio de Fispa
-01/11/2026 15:25:07  INFO     Sin foto | Cod.Articulo FIS-029 | El producto no se encontró en el sitio de Fispa
-01/11/2026 15:25:07  INFO     Sin foto | Cod.Articulo FIS-049 | El producto no se encontró en el sitio de Fispa
-01/11/2026 15:25:07  INFO     Sin foto | Cod.Articulo FIS-087 | El producto no se encontró en el sitio de Fispa
-01/11/2026 15:25:07  INFO     Sin foto | Cod.Articulo FIS-131 | El producto no se encontró en el sitio de Fispa
-01/11/2026 15:25:07  INFO     Sin foto | Cod.Articulo FIS-137 | El producto no se encontró en el sitio de Fispa
-01/11/2026 15:25:07  INFO     [4/5] Generando la base maestra y guardando archivos...
-01/11/2026 15:25:08  INFO     Guardado: base_maestra.csv (2184 filas)
-01/11/2026 15:25:08  INFO     Guardado: errores_sin_mapeo.csv (142 filas)
-01/11/2026 15:25:08  INFO     Guardado: base_maestra.sqlite
-01/11/2026 15:25:08  INFO     [5/5] Controles de calidad:
-01/11/2026 15:25:08  INFO     [OK]     Artículos en la base maestra: 2184 (igual al maestro de compras)
-01/11/2026 15:25:08  INFO     [OK]     Cruzados con Fispa (2042) + excepciones (142) = 2184
-01/11/2026 15:25:08  INFO     [OK]     Código interno, Marca y Categoría idénticos al ERP (sin modificaciones)
-01/11/2026 15:25:08  INFO     [OK]     Todos los códigos internos existen en el reporte de ventas
-01/11/2026 15:25:08  INFO     [OK]     Descripciones de hasta 90 caracteres (mín 22, promedio 71, máx 90)
-01/11/2026 15:25:08  INFO     [OK]     Ninguna descripción repite la palabra FISPA
-01/11/2026 15:25:08  INFO     [OK]     Ningún artículo quedó sin descripción
-01/11/2026 15:25:08  INFO     [INFO]   Descripciones entre 70 y 90 caracteres: 1320; más cortas: 864 (el nombre de origen no tiene más información)
-01/11/2026 15:25:08  INFO     [REVISAR] 9 artículos con precio en CERO o vacío (ver lista abajo)
-01/11/2026 15:25:08  INFO     [OK]     Todos los artículos cruzados tienen costo de reposición
-01/11/2026 15:25:08  INFO     [INFO]   Artículos con foto: 2028; cruzados sin foto en el sitio: 14 (detalle en log_proceso.txt)
-01/11/2026 15:25:08  INFO     [INFO]   EAN-13 válidos encontrados: 0 (la lista de Fispa no trae códigos EAN-13 válidos)
-01/11/2026 15:25:08  INFO     [INFO]   Excepciones 'NO_FIGURA_EN_LISTA_FABRICANTE': 141
-01/11/2026 15:25:08  INFO     [INFO]   Excepciones 'SIN_CODIGO_PROVEEDOR': 1
-01/11/2026 15:25:08  INFO     === FIN DEL PROCESO OK ===
+01/11/2026 15:57:40  INFO     === INICIO DEL PROCESO: BASE MAESTRA FISPA ===
+01/11/2026 15:57:40  INFO     [1/5] Leyendo archivos de la carpeta 'entrada'...
+01/11/2026 15:57:40  INFO     ERP1 (ventas): 2184 filas leídas
+01/11/2026 15:57:40  INFO     ERP2 (compras): 2184 filas leídas
+01/11/2026 15:57:41  INFO     Lista proveedor: encabezado en fila 9, 3668 artículos leídos
+01/11/2026 15:57:41  INFO     [2/5] Uniendo reportes del ERP y cruzando con la lista de Fispa...
+01/11/2026 15:57:41  INFO     Unión ERP1 + ERP2: 2184 artículos activos
+01/11/2026 15:57:41  INFO     Columnas 'Cod.Ref.Aux' y 'Referencia' son idénticas: se usa 'Cod.Ref.Aux'.
+01/11/2026 15:57:41  INFO     Columnas 'Aplicacion' y 'Cod.Linea' son idénticas: se usa 'Aplicacion'.
+01/11/2026 15:57:41  WARNING  Código de proveedor '120107' compartido por varios SKU: 120103 FISPA, 120107 FISPA (se enriquecen todos; revisar con Compras)
+01/11/2026 15:57:41  WARNING  Código de proveedor 'M1015' compartido por varios SKU: M1015 FISPA, M1023 FISPA (se enriquecen todos; revisar con Compras)
+01/11/2026 15:57:41  INFO     Cruce con lista del proveedor: 2042 cruzados, 142 sin cruzar
+01/11/2026 15:57:41  INFO     Excepción 10504 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '10504' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 14000 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '14000' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 14001 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '14001' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 14010 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '14010' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 14110 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '14110' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 14111 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '14111' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 14114 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '14114' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15001 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15001' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15002 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15002' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15003 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15003' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15004 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15004' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15005 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15005' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15006 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15006' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15007 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15007' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15008 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15008' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15009 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15009' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15010 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15010' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15011 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15011' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15012 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15012' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15013 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15013' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15014 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15014' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15015 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15015' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15017 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15017' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15019 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15019' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15020 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15020' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15021 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15021' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15022 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15022' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15023 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15023' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15024 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15024' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15025 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15025' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15026 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15026' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15027 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15027' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15028 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15028' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15029 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15029' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15030 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15030' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15031 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15031' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15034 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15034' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15035 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15035' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15037 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15037' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15038 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15038' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15040 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15040' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15043 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15043' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15047 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15047' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15051 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15051' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15053 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15053' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15054 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15054' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15055 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15055' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15057 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15057' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15058 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15058' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15059 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15059' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15060 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15060' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15062 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15062' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15063 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15063' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15065 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15065' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15066 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15066' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15067 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15067' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15069 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15069' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15070 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15070' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15071 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15071' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 15073 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '15073' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 16021 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '16021' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 17001 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '17001' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 17002 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '17002' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 17003 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '17003' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 17017 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '17017' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 18025 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '18025' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 18026 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '18026' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 18107 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '18107' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 212 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '212' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 213 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '213' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22601A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22601A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22602A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22602A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22603A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22603A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22605A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22605A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22606A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22606A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22607A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22607A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22608A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22608A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22609A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22609A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22611A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22611A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22612A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22612A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22613A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22613A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22615A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22615A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22616A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22616A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22618A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22618A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22636A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22636A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22638A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22638A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22639A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22639A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22641A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22641A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22643A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22643A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22655A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22655A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22657A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22657A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22668A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22668A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22706A FISPA | SIN_CODIGO_PROVEEDOR | El artículo no tiene Código Proveedor cargado en el ERP 
+01/11/2026 15:57:41  INFO     Excepción 22735A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22735A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22736A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22736A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22738A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22738A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22740A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22740A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22742A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22742A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22746A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22746A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22749 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22749A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22801A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22801A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22803A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22803A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 22806A FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '22806A' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 243000 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '243000' no figura en la lista de Fispa | Posible equivalente en lista: 243000A (verificar manualmente)
+01/11/2026 15:57:41  INFO     Excepción 244021 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '244021' no figura en la lista de Fispa | Posible equivalente en lista: 244021A (verificar manualmente)
+01/11/2026 15:57:41  INFO     Excepción 27000 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '27000' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 27004 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '27004' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 285600 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '285600' no figura en la lista de Fispa | Posible equivalente en lista: 285600A (verificar manualmente)
+01/11/2026 15:57:41  INFO     Excepción 285680 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '285680' no figura en la lista de Fispa | Posible equivalente en lista: 285680A (verificar manualmente)
+01/11/2026 15:57:41  INFO     Excepción 285690 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '285690' no figura en la lista de Fispa | Posible equivalente en lista: 285690A (verificar manualmente)
+01/11/2026 15:57:41  INFO     Excepción 285720 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '285720' no figura en la lista de Fispa | Posible equivalente en lista: 285720A (verificar manualmente)
+01/11/2026 15:57:41  INFO     Excepción 285730 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '285730' no figura en la lista de Fispa | Posible equivalente en lista: 285730A (verificar manualmente)
+01/11/2026 15:57:41  INFO     Excepción 285760 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '285760' no figura en la lista de Fispa | Posible equivalente en lista: 285760A (verificar manualmente)
+01/11/2026 15:57:41  INFO     Excepción 285810 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '285810' no figura en la lista de Fispa | Posible equivalente en lista: 285810A (verificar manualmente)
+01/11/2026 15:57:41  INFO     Excepción 285900 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '285900' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 30091 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '30091' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 30107 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '30107' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 3240101 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '3240101' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 3240107 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '3240107' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 3240113 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '3240113' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 556 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '556' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 60020 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60020' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 60025 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60025' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 60026 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60026' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 60031 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60031' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 60032 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60032' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 60036 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60036' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 60038 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60038' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 60039 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60039' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 60040 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60040' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 60050 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60050' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 60056 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '60056' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 734 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '734' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción 747 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código '747' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción FI 5002001 | NO_FIGURA_EN_LISTA_FABRICANTE | El código 'FI-5002001' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción FIS 020 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código 'FIS-020' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción FIS 022 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código 'FIS-022' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción FIS 032 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código 'FIS-032' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción FIS 039 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código 'FIS-039' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción FIS 040 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código 'FIS-040' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción FIS 096 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código 'FIS-096' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     Excepción FIS 204001 FISPA | NO_FIGURA_EN_LISTA_FABRICANTE | El código 'FIS-204001' no figura en la lista de Fispa 
+01/11/2026 15:57:41  INFO     [3/5] Buscando fotos en el sitio de Fispa (puede tardar unos minutos la primera vez)...
+01/11/2026 15:57:41  INFO     Fotos: recorriendo 96 páginas de rubro del sitio de Fispa...
+01/11/2026 15:57:44  INFO     Fotos: 11 productos no aparecen en los rubros; se consulta su ficha individual
+01/11/2026 15:57:44  INFO     Fotos: 2026 con foto, 14 sin foto, 0 pedidos nuevos al sitio (el resto desde cache)
+01/11/2026 15:57:44  INFO     Sin foto | Cod.Articulo 16020 | El producto no se encontró en el sitio de Fispa
+01/11/2026 15:57:44  INFO     Sin foto | Cod.Articulo 20040E | El sitio de Fispa muestra la imagen genérica (sin foto propia)
+01/11/2026 15:57:44  INFO     Sin foto | Cod.Articulo 20040I | El sitio de Fispa muestra la imagen genérica (sin foto propia)
+01/11/2026 15:57:44  INFO     Sin foto | Cod.Articulo 22629A | El sitio de Fispa muestra la imagen genérica (sin foto propia)
+01/11/2026 15:57:44  INFO     Sin foto | Cod.Articulo 244070 | El producto no se encontró en el sitio de Fispa
+01/11/2026 15:57:44  INFO     Sin foto | Cod.Articulo FIS-001 | El producto no se encontró en el sitio de Fispa
+01/11/2026 15:57:44  INFO     Sin foto | Cod.Articulo FIS-002 | El producto no se encontró en el sitio de Fispa
+01/11/2026 15:57:44  INFO     Sin foto | Cod.Articulo FIS-024 | El producto no se encontró en el sitio de Fispa
+01/11/2026 15:57:44  INFO     Sin foto | Cod.Articulo FIS-025 | El producto no se encontró en el sitio de Fispa
+01/11/2026 15:57:44  INFO     Sin foto | Cod.Articulo FIS-029 | El producto no se encontró en el sitio de Fispa
+01/11/2026 15:57:44  INFO     Sin foto | Cod.Articulo FIS-049 | El producto no se encontró en el sitio de Fispa
+01/11/2026 15:57:44  INFO     Sin foto | Cod.Articulo FIS-087 | El producto no se encontró en el sitio de Fispa
+01/11/2026 15:57:44  INFO     Sin foto | Cod.Articulo FIS-131 | El producto no se encontró en el sitio de Fispa
+01/11/2026 15:57:44  INFO     Sin foto | Cod.Articulo FIS-137 | El producto no se encontró en el sitio de Fispa
+01/11/2026 15:57:44  INFO     [4/5] Generando la base maestra y guardando archivos...
+01/11/2026 15:57:44  INFO     Guardado: base_maestra.csv (2184 filas)
+01/11/2026 15:57:44  INFO     Guardado: errores_sin_mapeo.csv (142 filas)
+01/11/2026 15:57:44  INFO     Guardado: base_maestra.sqlite
+01/11/2026 15:57:44  INFO     [5/5] Controles de calidad:
+01/11/2026 15:57:44  INFO     [OK]     Artículos en la base maestra: 2184 (igual al maestro de compras)
+01/11/2026 15:57:44  INFO     [OK]     Cruzados con Fispa (2042) + excepciones (142) = 2184
+01/11/2026 15:57:44  INFO     [OK]     Código interno, Marca y Categoría idénticos al ERP (sin modificaciones)
+01/11/2026 15:57:44  INFO     [OK]     Todos los códigos internos existen en el reporte de ventas
+01/11/2026 15:57:44  INFO     [OK]     Descripciones de hasta 90 caracteres (mín 22, promedio 71, máx 90)
+01/11/2026 15:57:44  INFO     [OK]     Ninguna descripción repite la palabra FISPA
+01/11/2026 15:57:44  INFO     [OK]     Ningún artículo quedó sin descripción
+01/11/2026 15:57:44  INFO     [INFO]   Descripciones entre 70 y 90 caracteres: 1320; más cortas: 864 (el nombre de origen no tiene más información)
+01/11/2026 15:57:44  INFO     [REVISAR] 9 artículos con precio en CERO o vacío (ver lista abajo)
+01/11/2026 15:57:44  INFO     [OK]     Todos los artículos cruzados tienen costo de reposición
+01/11/2026 15:57:44  INFO     [INFO]   Artículos con foto: 2028; cruzados sin foto en el sitio: 14 (detalle en log_proceso.txt)
+01/11/2026 15:57:44  INFO     [INFO]   EAN-13 válidos encontrados: 0 (la lista de Fispa no trae códigos EAN-13 válidos)
+01/11/2026 15:57:44  INFO     [INFO]   Excepciones 'NO_FIGURA_EN_LISTA_FABRICANTE': 141
+01/11/2026 15:57:44  INFO     [INFO]   Excepciones 'SIN_CODIGO_PROVEEDOR': 1
+01/11/2026 15:57:44  INFO     === FIN DEL PROCESO OK ===

@@ -49,9 +49,11 @@ def reparar_caracteres(texto):
     cuando hay evidencia de cuál era el original:
       - "O?RINGS" / "OïRINGS" -> "O'RINGS": la web de Fispa escribe "KIT FILTROS Y O'RINGS".
       - " ? " entre espacios -> " - ": es un separador perdido ("2005 ? 2016", "Cummins ? MWM").
+      - "Â´" -> "´": es el acento agudo leído con la codificación equivocada ("KA 1.0 Â´99").
     Los demás "?" se dejan como están ("1? SERIE", "Salida ?8"): adivinar si eran
     "ª", "º" o "Ø" sería inventar datos.
     """
+    texto = texto.replace("Â´", "´")
     texto = re.sub(r"\bO[?ïÏ´`’](RINGS?)", r"O'\1", texto, flags=re.IGNORECASE)
     return re.sub(r"(?<=\s)\?(?=\s)", "-", texto)
 
