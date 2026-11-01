@@ -1,0 +1,30 @@
+﻿CONTROL DE CALIDAD - BASE MAESTRA FISPA
+Fecha: 01/11/2026 15:25
+
+[OK]     Artículos en la base maestra: 2184 (igual al maestro de compras)
+[OK]     Cruzados con Fispa (2042) + excepciones (142) = 2184
+[OK]     Código interno, Marca y Categoría idénticos al ERP (sin modificaciones)
+[OK]     Todos los códigos internos existen en el reporte de ventas
+[OK]     Descripciones de hasta 90 caracteres (mín 22, promedio 71, máx 90)
+[OK]     Ninguna descripción repite la palabra FISPA
+[OK]     Ningún artículo quedó sin descripción
+[INFO]   Descripciones entre 70 y 90 caracteres: 1320; más cortas: 864 (el nombre de origen no tiene más información)
+[REVISAR] 9 artículos con precio en CERO o vacío (ver lista abajo)
+[OK]     Todos los artículos cruzados tienen costo de reposición
+[INFO]   Artículos con foto: 2028; cruzados sin foto en el sitio: 14 (detalle en log_proceso.txt)
+[INFO]   EAN-13 válidos encontrados: 0 (la lista de Fispa no trae códigos EAN-13 válidos)
+[INFO]   Excepciones 'NO_FIGURA_EN_LISTA_FABRICANTE': 141
+[INFO]   Excepciones 'SIN_CODIGO_PROVEEDOR': 1
+
+ARTÍCULOS CON PRECIO EN CERO O VACÍO (corregir en el ERP antes de publicar):
+  - 30091 FISPA: SENSOR ROTACION RPM CORSA TODOS SIN DISTRIBUIDOR-DELPHI SMD00149
+  - 3240113 FISPA: RELAY BOMBA DE COMBUSTIBLE FIAT BLANCO
+  - FIS 020 FISPA: BUJIA INCANDESCENTE CITROËN AX 1.5 D TUD5 - VJY PEUGEOT 106 1.5 D TUD5-VJZ PEUGEOT 306 1.9
+  - FIS 022 FISPA: BUJIA INCANDESCENTE RENAULT CLIO II, KANGOO, LAGUNA, LOGAN, MEGANE, SANDERO, SCENIC
+  - FIS 032 FISPA: BUJIA INCENDESCENTE WV GOL-CADDY-SENDA-SAVEIRO (HC 112)
+  - FIS 039 FISPA: BUJIA INCENDESCENTE RENAULT-FIAT-PEUGEOT (HC 110)
+  - FIS 040 FISPA: BUJIA INCANDESCENTE CHEVROLET GM OPEL- FORD - NISSAN - MERCEDES BENZ - LAND ROVER
+  - FIS 096 FISPA: BUJIA INCANDESCENTE TOYOTA DYNA, HI ACE, HILUX, MOTORES ADAPTADOS (HC 205)
+  - FIS 204001 FISPA: BUJIA INCANDESCENTE CITROEN C3, FORD ECO SPORT, FIESTA, FIESTA MAX, PEUGEOT 307 (HC 350)
+
+RESULTADO: Sin errores graves. Revisar los puntos [REVISAR] y el archivo errores_sin_mapeo.csv antes de distribuir.
