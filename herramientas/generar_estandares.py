@@ -6,7 +6,7 @@ técnico (criterios completos y verificaciones) sigue en DECISIONES.md y diagnos
 Los números se calculan desde la carpeta salida/, así el documento coincide con la base.
 
 Requiere haber corrido antes el pipeline y tener python-docx.
-Uso: python docs/generar_estandares.py
+Uso: python herramientas/generar_estandares.py
 """
 from pathlib import Path
 

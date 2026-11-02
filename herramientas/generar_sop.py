@@ -1,9 +1,10 @@
 """
 Genera el SOP (Procedimiento Operativo Estándar) en Word: docs/SOP_Actualizacion_Base_Maestra.docx
+(este script está en herramientas/; el documento se guarda en docs/)
 
 Se genera por código para que el documento se pueda regenerar si cambian nombres de
 archivos o carpetas. Requiere: pip install python-docx
-Uso: python docs/generar_sop.py
+Uso: python herramientas/generar_sop.py
 """
 from pathlib import Path
 
@@ -14,7 +15,7 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Cm, Pt, RGBColor
 
-SALIDA = Path(__file__).resolve().parent / "SOP_Actualizacion_Base_Maestra.docx"
+SALIDA = Path(__file__).resolve().parent.parent / "docs" / "SOP_Actualizacion_Base_Maestra.docx"
 AZUL = RGBColor(0x1F, 0x4E, 0x79)
 
 doc = Document()

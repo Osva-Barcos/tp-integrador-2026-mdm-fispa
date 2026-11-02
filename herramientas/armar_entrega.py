@@ -6,7 +6,7 @@ Genera Entrega_TP_Integrador_2026_Fispa/ con:
   05_Documentacion_Tecnica (Estándares y decisiones del grupo + controles de la ejecución)
 
 Requiere haber corrido antes el pipeline (usa la carpeta salida/) y tener python-docx.
-Uso: python docs/armar_entrega.py
+Uso: python herramientas/armar_entrega.py
 """
 import re
 import shutil
@@ -41,6 +41,7 @@ for f in ["ejecutar_pipeline.bat", "requirements.txt", "README.md", ".gitignore"
 shutil.copytree(REPO / "src", p / "src", ignore=shutil.ignore_patterns("__pycache__"))
 shutil.copytree(REPO / "entrada", p / "entrada")
 shutil.copytree(REPO / "docs", p / "docs", ignore=shutil.ignore_patterns("__pycache__"))
+shutil.copytree(REPO / "herramientas", p / "herramientas", ignore=shutil.ignore_patterns("__pycache__"))
 shutil.copytree(REPO / "fuentes_originales", p / "fuentes_originales")
 
 

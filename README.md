@@ -43,10 +43,10 @@ python -m venv .venv
 | `salida/control_calidad.txt` | Verificaciones automáticas y precios en cero |
 | `salida/log_proceso.txt` | Detalle de la ejecución, avisos y productos sin foto |
 | `salida/precio_menor_costo.csv` | Alarma: artículos con precio menor al costo de reposición de Fispa (D12) |
-| `docs/SOP_Actualizacion_Base_Maestra.docx` | Procedimiento para personal administrativo (se regenera con `python docs/generar_sop.py`, requiere `python-docx`) |
-| `docs/Estandares_y_Decisiones.docx` | **Documento para el grupo**: estándar por columna, reglas generales, decisiones D1-D12, hallazgos y cómo proponer cambios (se regenera con `python docs/generar_estandares.py`) |
+| `docs/SOP_Actualizacion_Base_Maestra.docx` | Procedimiento para personal administrativo (se regenera con `python herramientas/generar_sop.py`, requiere `python-docx`) |
+| `docs/Estandares_y_Decisiones.docx` | **Documento para el grupo**: estándar por columna, reglas generales, decisiones D1-D12, hallazgos y cómo proponer cambios (se regenera con `python herramientas/generar_estandares.py`) |
 | `docs/DECISIONES.md` | Detalle técnico de cada decisión, con su criterio y verificaciones |
-| `docs/armar_entrega.py` | Arma la carpeta de entrega y su `.zip` a partir de `salida/` y `docs/` (`python docs/armar_entrega.py`, requiere `python-docx`) |
+| `herramientas/armar_entrega.py` | Arma la carpeta de entrega y su `.zip` a partir de `salida/` y `docs/` (`python herramientas/armar_entrega.py`, requiere `python-docx`) |
 | `docs/diagnostico_datos.md` | Diagnóstico de calidad de las fuentes |
 
 ### Columnas de la base maestra (Anexo 2)
@@ -71,7 +71,8 @@ python -m venv .venv
 | `entrada/` | Copias de los Excel con los nombres fijos que lee el pipeline (las reemplaza el administrativo en cada actualización) |
 | `salida/` | Resultados generados |
 | `src/` | Código del pipeline |
-| `docs/` | SOP, decisiones y diagnóstico |
+| `docs/` | Solo documentos: SOP, Estándares y decisiones, detalle técnico (DECISIONES.md, diagnóstico) |
+| `herramientas/` | Scripts que generan los documentos y la entrega (no son parte del pipeline) |
 | `cache/` | Páginas del sitio de Fispa ya descargadas (se regenera sola) |
 
 ## Arquitectura
