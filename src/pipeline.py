@@ -59,7 +59,7 @@ def construir_base(cruce, fotos):
             lambda v: "" if pd.isna(v) else str(v).strip()),
         "Descripcion_Optimizada": [
             descripcion.generar_descripcion(
-                f["Producto/Nombre"], f["Categoría"],
+                f["Producto/Nombre"], f["Categoría"], f["Marca"],
                 _vacio_a_none(f["Descripcion"]) if f["cruzado"] else None,
                 _vacio_a_none(f["Cod.Articulo"]) if f["cruzado"] else None,
                 _vacio_a_none(f["Aplicacion"]) if f["cruzado"] else None)

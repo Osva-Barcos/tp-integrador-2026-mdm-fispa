@@ -20,8 +20,8 @@ AZUL = RGBColor(0x1F, 0x4E, 0x79)
 doc = Document()
 seccion = doc.sections[0]
 seccion.page_width, seccion.page_height = Cm(21), Cm(29.7)   # A4
-seccion.left_margin = seccion.right_margin = Cm(1.8)
-seccion.top_margin = seccion.bottom_margin = Cm(1.5)
+seccion.left_margin = seccion.right_margin = Cm(1.6)
+seccion.top_margin = seccion.bottom_margin = Cm(1.2)
 
 estilo = doc.styles["Normal"]
 estilo.font.name = "Calibri"
@@ -176,7 +176,8 @@ tabla(["Archivo en la carpeta salida", "Qué contiene"],
        ["control_calidad.txt", "Resumen de los controles automáticos. Es lo primero que se lee "
                                "antes de distribuir."],
        ["errores_sin_mapeo.csv", "Artículos que no pudieron unirse con la lista de Fispa y el motivo."],
-       ["log_proceso.txt", "Detalle completo del proceso, incluidos los productos sin foto."]],
+       ["log_proceso.txt", "Detalle completo del proceso, incluidos los productos sin foto."],
+       ["precio_menor_costo.csv", "Artículos con precio menor al costo de la lista de Fispa."]],
       [5.2, 12.2])
 
 # ---------------------------------------------------------------------------
@@ -188,6 +189,8 @@ vineta("**Precios en cero: ", "cuando el control muestra “[REVISAR] artículos
        "al final del mismo archivo figura la lista de códigos afectados. Esos precios se corrigen en "
        "el sistema, se vuelve a exportar el Reporte de Ventas y se repiten los pasos 2 y 3. Una base "
        "con precios en cero no se publica.")
+vineta("**Precio menor al costo: ", "es un aviso, no impide distribuir. Con la lista de "
+       "precio_menor_costo.csv se consulta a Comercial si esos precios están desactualizados.")
 vineta("**errores_sin_mapeo.csv: ", "la columna Motivo indica por qué cada artículo no pudo unirse "
        "con la lista del fabricante:")
 tabla(["Motivo", "Qué significa", "Cómo se resuelve"],

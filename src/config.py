@@ -24,6 +24,7 @@ ARCHIVO_BASE_SQLITE = CARPETA_SALIDA / "base_maestra.sqlite"
 ARCHIVO_ERRORES = CARPETA_SALIDA / "errores_sin_mapeo.csv"
 ARCHIVO_LOG = CARPETA_SALIDA / "log_proceso.txt"
 ARCHIVO_CONTROL = CARPETA_SALIDA / "control_calidad.txt"
+ARCHIVO_PRECIO_MENOR_COSTO = CARPETA_SALIDA / "precio_menor_costo.csv"
 
 # --- Columnas mínimas que debe traer cada archivo --------------------------------
 # Si falta alguna, el pipeline se detiene con un mensaje claro (no adivina).
@@ -45,7 +46,8 @@ COLUMNAS_SALIDA = [
 # --- Descripción optimizada -------------------------------------------------------
 DESCRIPCION_MAX = 90   # tope duro de caracteres
 DESCRIPCION_MIN = 70   # objetivo mínimo (las más cortas se informan, no se rellenan)
-MARCA_A_OMITIR = "FISPA"
+# La marca que no se repite en la descripción se toma de la columna Marca de cada artículo
+# (no está fija acá), así el proceso sirve igual para otras marcas.
 
 # --- Scraper de fotos ---------------------------------------------------------------
 SITIO_FISPA = "https://fispaargentina.com.ar/"

@@ -148,6 +148,7 @@ doc5 = DEST / "05_Documentacion_Tecnica"
 md_a_docx(REPO / "docs/DECISIONES.md", doc5 / "Decisiones_de_diseno.docx")
 md_a_docx(REPO / "docs/diagnostico_datos.md", doc5 / "Diagnostico_de_datos.docx")
 shutil.copy2(REPO / "salida/control_calidad.txt", doc5)
+shutil.copy2(REPO / "salida/precio_menor_costo.csv", doc5)
 shutil.copy2(REPO / "salida/log_proceso.txt", doc5)
 
 # --- 00_LEEME.docx --------------------------------------------------------------------
@@ -214,7 +215,8 @@ for txt in ["**D1** · La base incluye los 2.184 SKU activos; los 142 no cruzado
             "**D4** · Cruce exacto, solo con espacios recortados y mayúsculas, sin fuzzy matching.",
             "**D8** · Fotos obtenidas de las páginas de rubro del sitio oficial, con pausas y cache.",
             "**D10** · Cruces_OEM sin el prefijo \"REF ORIG\"; Aplicacion_Completa intacta.",
-            "**D11** · Caracteres rotos reparados solo cuando se conoce el original (O?RINGS → O'RINGS)."]:
+            "**D11** · Caracteres rotos reparados solo cuando se conoce el original (O?RINGS → O'RINGS).",
+            "**D12** · Alarma (no bloqueante) de artículos con precio menor al costo de reposición."]:
     runs(d.add_paragraph(style="List Bullet"), txt)
 d.save(DEST / "00_LEEME.docx")
 

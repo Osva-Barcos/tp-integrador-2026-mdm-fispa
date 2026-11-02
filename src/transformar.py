@@ -228,6 +228,7 @@ def limpiar_oem(valor):
     Decisión 10: ordena las equivalencias originales sin perder información.
       - quita el prefijo "REF ORIG" y sus variantes (REF.ORIG., REF ORG, REF OEM...),
         que se repite en el 80% de las filas y no aporta a la búsqueda;
+      - quita también la etiqueta "OEM" / "OE" del comienzo (no la que va en el medio);
       - unifica los separadores " - " existentes como " | ";
       - si el valor era solo guiones ("----------"), queda vacío.
     NO se parte por espacios: hay códigos con espacios internos ("D51 84") y marcas
@@ -241,6 +242,12 @@ def limpiar_oem(valor):
     # o "I"); el "_" de "REF.ORIG_" se descarta junto con los espacios, puntos y ":".
     texto = re.sub(r"^RE[FG]?\W*(ORIGINAL|ORIGI|ORIG|ORLG|ORI|ORG|OEM)(?![A-Za-z0-9])[\s.:_]*", "",
                    texto,
+                   flags=re.IGNORECASE)
+    # Etiqueta "OEM" / "OE" / "OEN" al comienzo: no aporta, toda la columna son equivalencias.
+    # "OEM" puede venir pegado al código ("OEM96476979"); "OE" y "OEN" solo si van separados,
+    # para no recortar un código real que empiece con esas letras. Un "OEM" en el medio
+    # ("BOSCH 0280140559 OEM 037906457") se conserva: separa referencias de distinto origen.
+    texto = re.sub(r"^(OEM(?![A-Za-z])|OEN(?=[\s.:_])|OE(?=[\s.:_]))[\s.:_]*", "", texto,
                    flags=re.IGNORECASE)
     texto = re.sub(r"\s+-\s+", " | ", texto)
     return texto.strip(" -|")

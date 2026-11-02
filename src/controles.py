@@ -5,6 +5,7 @@ Verifica automáticamente la salida antes de distribuirla y genera control_calid
 escrito para que lo lea el personal administrativo (sin términos técnicos).
 """
 import logging
+import re
 
 import pandas as pd
 
@@ -59,9 +60,12 @@ def ejecutar_controles(base, errores, erp1, erp2, sin_foto):
        f"Descripciones de hasta {config.DESCRIPCION_MAX} caracteres "
        f"(mín {largos.min()}, promedio {largos.mean():.0f}, máx {largos.max()})",
        f"{(largos > config.DESCRIPCION_MAX).sum()} descripciones superan {config.DESCRIPCION_MAX} caracteres")
-    con_marca = base["Descripcion_Optimizada"].str.contains(config.MARCA_A_OMITIR, case=False).sum()
-    ok(con_marca == 0, f"Ninguna descripción repite la palabra {config.MARCA_A_OMITIR}",
-       f"{con_marca} descripciones contienen la palabra {config.MARCA_A_OMITIR}")
+    # Cada descripción se compara contra la marca de su propio artículo.
+    con_marca = sum(
+        bool(m) and bool(re.search(r"\b" + re.escape(str(m)) + r"\b", d, re.IGNORECASE))
+        for d, m in zip(base["Descripcion_Optimizada"], base["Marca"].fillna("")))
+    ok(con_marca == 0, "Ninguna descripción repite la marca del artículo",
+       f"{con_marca} descripciones repiten la marca del artículo")
     ok((largos == 0).sum() == 0, "Ningún artículo quedó sin descripción",
        f"{(largos == 0).sum()} artículos sin descripción")
     en_rango = int(((largos >= config.DESCRIPCION_MIN) & (largos <= config.DESCRIPCION_MAX)).sum())
@@ -76,6 +80,21 @@ def ejecutar_controles(base, errores, erp1, erp2, sin_foto):
     costo_vacio_cruzado = base[base["_cruzado"] & base["Costo_Reposicion"].isna()]
     ok(len(costo_vacio_cruzado) == 0, "Todos los artículos cruzados tienen costo de reposición",
        f"{len(costo_vacio_cruzado)} artículos cruzados sin costo de reposición", grave=False)
+
+    # Alarma (D12): precio de venta menor al costo de reposición de la lista de Fispa.
+    # No se puede saber la causa con estos datos (precios del ERP desactualizados, o el
+    # "Importe" de Fispa es precio de lista antes de descuentos): solo se avisa, no se corrige.
+    con_ambos = base[(base["Precio"].fillna(0) > 0) & base["Costo_Reposicion"].notna()]
+    bajo_costo = con_ambos[con_ambos["Precio"] < con_ambos["Costo_Reposicion"]].copy()
+    bajo_costo["Diferencia"] = (bajo_costo["Costo_Reposicion"] - bajo_costo["Precio"]).round(2)
+    bajo_costo["Precio_sobre_Costo"] = (bajo_costo["Precio"] / bajo_costo["Costo_Reposicion"]).round(3)
+    columnas_alarma = ["Codigo_Interno", "Categoria", "Codigo_Proveedor", "Descripcion_Optimizada",
+                       "Precio", "Costo_Reposicion", "Diferencia", "Precio_sobre_Costo"]
+    bajo_costo.sort_values("Diferencia", ascending=False)[columnas_alarma].to_csv(
+        config.ARCHIVO_PRECIO_MENOR_COSTO, index=False, encoding="utf-8-sig")
+    ok(len(bajo_costo) == 0, "Ningún precio es menor al costo de reposición de la lista de Fispa",
+       f"{len(bajo_costo)} artículos con precio MENOR al costo de reposición (detalle en "
+       f"{config.ARCHIVO_PRECIO_MENOR_COSTO.name}; consultar con Comercial)", grave=False)
 
     # 5. Fotos y EAN
     con_foto = int((base["URL_Foto"].fillna("") != "").sum())
@@ -98,6 +117,11 @@ def ejecutar_controles(base, errores, erp1, erp2, sin_foto):
             f.write("\nARTÍCULOS CON PRECIO EN CERO O VACÍO (corregir en el ERP antes de publicar):\n")
             for _, fila in precio_cero.iterrows():
                 f.write(f"  - {fila['Codigo_Interno']}: {fila['Descripcion_Optimizada']}\n")
+        if len(bajo_costo):
+            f.write(f"\nPRECIO MENOR AL COSTO DE REPOSICIÓN: {len(bajo_costo)} artículos "
+                    f"(lista completa en {config.ARCHIVO_PRECIO_MENOR_COSTO.name}).\n"
+                    "  Confirmar con Comercial si los precios están actualizados o si el costo de la\n"
+                    "  lista de Fispa es un precio antes de descuentos.\n")
         f.write("\nRESULTADO: " + ("HAY PROBLEMAS GRAVES, NO DISTRIBUIR.\n" if graves
                                    else "Sin errores graves. Revisar los puntos [REVISAR] y "
                                         "el archivo errores_sin_mapeo.csv antes de distribuir.\n"))

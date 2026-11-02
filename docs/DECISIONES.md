@@ -97,6 +97,12 @@ aproximadamente, con la forma [Tipo de pieza] + [Aplicación principal], sin rep
     que son modelos o siglas reales (`CORSA A`, `1.8 I E`).
 13. `KIT` solo se quita del nombre del ERP si el tipo de Fispa o la categoría también lo dicen.
     Si no, se conserva (`"KIT COMPLETO DE ACCESORIOS"` ya no pierde la palabra `KIT`).
+14. La **marca que no se repite** se toma de la columna `Marca` de cada artículo, no de una
+    palabra fija en el código. Hoy todas las filas son `FISPA` y la base no cambia (verificado:
+    idéntica byte a byte). Pero si se incorpora otra marca, como prevé el SOP, su nombre
+    tampoco se repetirá en sus descripciones. El control de calidad compara cada descripción
+    con la marca de su propio artículo. `Marca` y `Codigo_Interno` no se modifican: son campos
+    inmutables del ERP.
 
 **Criterio.** Es **determinista y reproducible** (misma entrada, misma salida), **gratis**, no
 requiere API key (el administrativo ejecuta todo con doble clic) y cada resultado se puede explicar
@@ -287,6 +293,14 @@ Esa misma limpieza general se aplica también a Cruces_OEM, antes de quitar el p
   (30229, 60005, 79019). La primera verificación solo buscaba "REF" y no las detectó. Se
   agregaron las dos variantes y la verificación ahora busca las tres formas.
 
+- Ampliación (02/11/2026): se quita también la etiqueta `OEM` / `OE` del comienzo (132 celdas,
+  como `OEM 5851005 5851602` → `5851005 5851602`), con el mismo criterio que "REF ORIG": no
+  aporta, porque toda la columna son equivalencias. `OEM` puede venir pegado al código
+  (`OEM96476979`); `OE` solo se quita si va separado, para no recortar un código real. Los 24
+  `OEM` que aparecen en el medio (`BOSCH 0280140559 … OEM 037906457`) se conservan, porque
+  separan referencias de distinto origen. Verificación sobre las 3.668 filas: 0 códigos o
+  dígitos perdidos.
+
 **Contenido mixto (se informa, no se modifica).** Al leer las 1.906 filas con dato, el 87% son
 códigos de automotrices o de fabricantes de repuestos, que es lo que pide el Anexo 2
 ("Bosch, Marelli, marcas de autos"). El 13% restante trae también especificaciones técnicas
@@ -332,3 +346,24 @@ También la Categoría del ERP dice `KITS DE FILTROS Y OïRINGS` (45 artículos)
 | Cruces_OEM | 9 | 8 |
 | Descripcion_Optimizada | 0 | 0 |
 | Categoria | 45 | 45 (inmutable) |
+
+## D12 — Alarma de precio menor al costo de reposición
+
+**Contexto.** En 522 de los 2.042 artículos cruzados, el Precio del ERP es menor que el
+Costo_Reposicion de la lista de Fispa. El cociente precio/costo va de 0,88 a 1,01 (mediana 1,01).
+
+**Opciones.** (a) No hacer nada; (b) corregir los precios automáticamente; (c) avisar sin
+modificar nada.
+
+**Decisión.** (c). El pipeline agrega un control `[REVISAR]`, que aparece en la ventana del
+`.bat` y en `control_calidad.txt`, y genera `salida/precio_menor_costo.csv` con código,
+categoría, descripción, precio, costo, diferencia y cociente, ordenado por diferencia. Es un
+aviso, no un error grave: no impide distribuir la base. El SOP indica consultarlo con Comercial.
+
+**Criterio.**
+- Con estos datos **no se puede saber la causa**. Puede ser que los precios del ERP estén
+  desactualizados frente a la lista de octubre 2026, o que el "Importe" de Fispa sea un precio
+  de lista antes de descuentos. Por eso el aviso no dice "precios desactualizados", que podría
+  ser falso.
+- Corregir precios no es tarea del pipeline: el precio es un dato comercial del ERP.
+- Dejar la lista en un archivo permite que Comercial la revise sin abrir la base completa.

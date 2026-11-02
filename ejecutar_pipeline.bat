@@ -63,6 +63,7 @@ echo     - base_maestra.csv        ^(base para publicar^)
 echo     - errores_sin_mapeo.csv   ^(articulos que no se pudieron cruzar^)
 echo     - control_calidad.txt     ^(LEER ANTES DE DISTRIBUIR^)
 echo     - log_proceso.txt         ^(detalle completo del proceso^)
+echo     - precio_menor_costo.csv  ^(precios por debajo del costo, para Comercial^)
 echo.
 if exist "salida" start "" explorer "%~dp0salida"
 pause

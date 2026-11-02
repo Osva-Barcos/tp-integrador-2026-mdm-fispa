@@ -174,16 +174,20 @@ def recortar(texto, maximo):
     return corte
 
 
-def quitar_marca(texto):
+def quitar_marca(texto, marca):
     """
-    Elimina la palabra FISPA (Directiva: no repetir la marca) y los "?" que quedaron
-    de caracteres mal codificados en el origen (ej. "Mondeo II ? III" -> "Mondeo II - III").
-    También separa palabras pegadas a "O'RINGS" ("O'RINGSMULTIPUNTO" -> "O'RINGS MULTIPUNTO").
+    Elimina la marca del artículo (Directiva: no repetir la marca). La marca viene de la
+    columna Marca del ERP, así sirve para FISPA o para cualquier otra marca futura.
+    También limpia los "?" que quedaron de caracteres mal codificados en el origen
+    (ej. "Mondeo II ? III" -> "Mondeo II - III") y separa palabras pegadas a "O'RINGS"
+    ("O'RINGSMULTIPUNTO" -> "O'RINGS MULTIPUNTO").
     """
     texto = re.sub(r"\s\?\s", " - ", texto).replace("?", " ")
     # (?!S) evita partir un "O'RINGS" ya separado en "O'RING S" si se aplica dos veces.
     texto = re.sub(r"(O'RINGS|O'RING(?!S))(?=[A-Za-z])", r"\1 ", texto, flags=re.IGNORECASE)
-    texto = re.sub(r"\b" + config.MARCA_A_OMITIR + r"\b", " ", texto, flags=re.IGNORECASE)
+    marca = limpiar_texto(marca)
+    if marca:
+        texto = re.sub(r"\b" + re.escape(marca) + r"\b", " ", texto, flags=re.IGNORECASE)
     return re.sub(r"\s+", " ", texto).strip(" -")
 
 
@@ -216,11 +220,11 @@ def quitar_codigos(texto):
     return " ".join(limpia)
 
 
-def generar_descripcion(nombre_erp, categoria, descripcion_proveedor=None, cod_articulo=None,
-                        aplicacion_proveedor=None):
-    """Arma la Descripcion_Optimizada de un artículo."""
+def generar_descripcion(nombre_erp, categoria, marca, descripcion_proveedor=None,
+                        cod_articulo=None, aplicacion_proveedor=None):
+    """Arma la Descripcion_Optimizada de un artículo (marca = columna Marca del ERP)."""
     nombre = separar_abreviaturas(_normalizar_numeros(
-        quitar_codigos(quitar_marca(limpiar_texto(nombre_erp)))))
+        quitar_codigos(quitar_marca(limpiar_texto(nombre_erp), marca))))
     tipo = tipo_de_pieza(descripcion_proveedor, cod_articulo) if descripcion_proveedor else ""
 
     if not tipo:
@@ -235,17 +239,18 @@ def generar_descripcion(nombre_erp, categoria, descripcion_proveedor=None, cod_a
         palabras_tipo.update(_palabra(x) for x in t.split("/") if x)
     aplicacion_erp = quitar_tipo_del_nombre(nombre, palabras_tipo)
     aplicacion_prov = quitar_tipo_del_nombre(
-        quitar_codigos(_normalizar_numeros(quitar_marca(limpiar_texto(aplicacion_proveedor)))),
+        quitar_codigos(_normalizar_numeros(quitar_marca(limpiar_texto(aplicacion_proveedor),
+                                                        marca))),
         palabras_tipo)
 
     # Regla principal: tipo oficial del fabricante + aplicación según el nombre del ERP.
-    texto = quitar_marca(f"{tipo} {aplicacion_erp}".strip())
+    texto = quitar_marca(f"{tipo} {aplicacion_erp}".strip(), marca)
 
     # Si queda corta (< 70) y la aplicación del proveedor es más completa, se usa esa:
     # aprovecha los caracteres disponibles con datos reales (más modelos/motores),
     # lo que mejora la búsqueda en el carrito y en e-commerce.
     if len(texto) < config.DESCRIPCION_MIN and len(aplicacion_prov) > len(aplicacion_erp):
-        texto = quitar_marca(f"{tipo} {aplicacion_prov}".strip())
+        texto = quitar_marca(f"{tipo} {aplicacion_prov}".strip(), marca)
 
     # Todo en mayúsculas: la mitad de los nombres del ERP mezcla "FORD Courier 1.8 D Endura".
     return recortar(texto.upper(), config.DESCRIPCION_MAX)

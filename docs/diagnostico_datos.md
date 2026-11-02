@@ -79,3 +79,13 @@ Compras y lista del proveedor).
 | Aplicacion (Fispa) | `O?RINGS` | 32 | Se repara a `O'RINGS` (así lo escribe la web de Fispa) |
 | Aplicacion / Cod.Ref.Aux (Fispa) | `?` como separador (`2005 ? 2016`) | 43 + 1 | Se reemplaza por ` - ` |
 | Aplicacion / Cod.Ref.Aux | `1? SERIE`, `Salida ?8`, `50?C`, `OHM?` | 29 + 8 | Se deja: el carácter original no se puede determinar |
+
+## Precio de venta frente al costo de reposición
+
+| Aspecto | Resultado |
+|---|---|
+| Artículos cruzados con precio > 0 | 2.042 |
+| Precio menor al costo de reposición de Fispa | **522** (25,6%) |
+| Cociente precio / costo | mín 0,88 · mediana 1,01 · máx 1,01 |
+| Categorías con más casos | Sensores de rotación (204), Inyectores (133), Sensores ABS (69) |
+| Causa | No determinable con estos datos (precios desactualizados o costo de lista antes de descuentos). Se informa como alarma (D12) |

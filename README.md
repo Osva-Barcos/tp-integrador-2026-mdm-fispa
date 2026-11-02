@@ -42,6 +42,7 @@ python -m venv .venv
 | `salida/errores_sin_mapeo.csv` | Artículos sin código de proveedor o que no figuran en la lista, con motivo y sugerencia de revisión |
 | `salida/control_calidad.txt` | Verificaciones automáticas y precios en cero |
 | `salida/log_proceso.txt` | Detalle de la ejecución, avisos y productos sin foto |
+| `salida/precio_menor_costo.csv` | Alarma: artículos con precio menor al costo de reposición de Fispa (D12) |
 | `docs/SOP_Actualizacion_Base_Maestra.docx` | Procedimiento para personal administrativo (se regenera con `python docs/generar_sop.py`, requiere `python-docx`) |
 | `docs/DECISIONES.md` | Decisiones de diseño con su criterio |
 | `docs/armar_entrega.py` | Arma la carpeta de entrega y su `.zip` a partir de `salida/` y `docs/` (`python docs/armar_entrega.py`, requiere `python-docx`) |
@@ -101,6 +102,7 @@ entrada/ (3 Excel) ──► extraer.py ──► transformar.py ──► descr
 | Código, Marca y Categoría vs ERP | Idénticos en el 100% de las filas |
 | Descripción | máx 90, promedio 71, 1.320 entre 70 y 90, todo en mayúsculas, sin códigos OEM ni "FISPA" |
 | Precios en cero | 9 (todos entre los no cruzados; listados en control_calidad.txt) |
+| Precio menor al costo | 522 artículos (aviso, lista en precio_menor_costo.csv) |
 | Fotos | 2.028 SKU con foto; 14 artículos Fispa sin foto en el sitio |
 | EAN-13 válidos | 0 (la fuente no los trae) |
 
