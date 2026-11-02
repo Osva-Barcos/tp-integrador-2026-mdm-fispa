@@ -3,7 +3,7 @@ Arma la carpeta de entrega (y su .zip) a partir del contenido del repo, sin modi
 
 Genera Entrega_TP_Integrador_2026_Fispa/ con:
   00_LEEME.docx · 01_Base_Maestra · 02_Log_Excepciones · 03_SOP · 04_Pipeline ·
-  05_Documentacion_Tecnica (Decisiones y Diagnóstico convertidos a .docx)
+  05_Documentacion_Tecnica (Estándares y decisiones del grupo + controles de la ejecución)
 
 Requiere haber corrido antes el pipeline (usa la carpeta salida/) y tener python-docx.
 Uso: python docs/armar_entrega.py
@@ -102,51 +102,10 @@ def tabla(d, filas):
     d.add_paragraph()
 
 
-def md_a_docx(origen, destino):
-    """Conversor simple de markdown (títulos, párrafos, listas, tablas, bloques de código)."""
-    d = nuevo_doc()
-    lineas = origen.read_text(encoding="utf-8").splitlines()
-    i = 0
-    while i < len(lineas):
-        l = lineas[i]
-        if l.startswith("```"):
-            i += 1
-            while i < len(lineas) and not lineas[i].startswith("```"):
-                r = d.add_paragraph().add_run(lineas[i]); r.font.name = "Consolas"; r.font.size = Pt(8.5)
-                i += 1
-        elif l.startswith("|"):
-            filas = []
-            while i < len(lineas) and lineas[i].startswith("|"):
-                celdas = [c.strip() for c in re.split(r"(?<!\\)\|", lineas[i].strip()[1:-1])]
-                if not all(re.fullmatch(r":?-+:?", c) for c in celdas):
-                    filas.append([c.replace("\\|", "|") for c in celdas])
-                i += 1
-            tabla(d, filas)
-            continue
-        elif m := re.match(r"^(#{1,3}) (.*)", l):
-            d.add_heading(m.group(2).replace("`", ""), level=len(m.group(1)))
-        elif re.match(r"^\s*- ", l):
-            runs(d.add_paragraph(style="List Bullet"), re.sub(r"^\s*- ", "", l))
-        elif re.match(r"^\d+\. ", l):
-            runs(d.add_paragraph(style="List Number"), re.sub(r"^\d+\. ", "", l))
-        elif l.strip() in ("", "---"):
-            pass
-        else:
-            texto = l
-            while i + 1 < len(lineas) and lineas[i + 1].strip() and not re.match(
-                    r"^(#|\||- |\s+- |\d+\. |```|---)", lineas[i + 1]):
-                i += 1
-                texto += " " + lineas[i].strip()
-            texto = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", texto)  # links -> texto
-            runs(d.add_paragraph(), texto)
-        i += 1
-    d.save(destino)
-
-
 # --- 05 Documentación técnica -------------------------------------------------------
 doc5 = DEST / "05_Documentacion_Tecnica"
-md_a_docx(REPO / "docs/DECISIONES.md", doc5 / "Decisiones_de_diseno.docx")
-md_a_docx(REPO / "docs/diagnostico_datos.md", doc5 / "Diagnostico_de_datos.docx")
+# Un solo documento para el grupo; el detalle técnico queda en 04_Pipeline/docs.
+shutil.copy2(REPO / "docs/Estandares_y_Decisiones.docx", doc5)
 shutil.copy2(REPO / "salida/control_calidad.txt", doc5)
 shutil.copy2(REPO / "salida/precio_menor_costo.csv", doc5)
 shutil.copy2(REPO / "salida/log_proceso.txt", doc5)
@@ -178,8 +137,9 @@ tabla(d, [
      "(Anexo 3)", "Entregable 3"],
     ["04_Pipeline", "Programa completo listo para ejecutar: `ejecutar_pipeline.bat`, código en `src/`, "
      "archivos de `entrada/`, `requirements.txt`, `README.md`", "Pipeline automatizado (objetivo central)"],
-    ["05_Documentacion_Tecnica", "Decisiones de diseño con su criterio, diagnóstico de los datos, "
-     "control de calidad y log de la última ejecución", "Respaldo para la defensa"],
+    ["05_Documentacion_Tecnica", "`Estandares_y_Decisiones.docx` (acuerdo del grupo: estándar por "
+     "columna, reglas, decisiones y hallazgos), control de calidad, alarma de precios y log de la "
+     "última ejecución", "Respaldo para la defensa"],
 ])
 
 d.add_heading("Resultados de la última ejecución", level=2)

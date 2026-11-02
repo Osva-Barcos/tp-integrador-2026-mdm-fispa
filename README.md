@@ -44,7 +44,8 @@ python -m venv .venv
 | `salida/log_proceso.txt` | Detalle de la ejecución, avisos y productos sin foto |
 | `salida/precio_menor_costo.csv` | Alarma: artículos con precio menor al costo de reposición de Fispa (D12) |
 | `docs/SOP_Actualizacion_Base_Maestra.docx` | Procedimiento para personal administrativo (se regenera con `python docs/generar_sop.py`, requiere `python-docx`) |
-| `docs/DECISIONES.md` | Decisiones de diseño con su criterio |
+| `docs/Estandares_y_Decisiones.docx` | **Documento para el grupo**: estándar por columna, reglas generales, decisiones D1-D12, hallazgos y cómo proponer cambios (se regenera con `python docs/generar_estandares.py`) |
+| `docs/DECISIONES.md` | Detalle técnico de cada decisión, con su criterio y verificaciones |
 | `docs/armar_entrega.py` | Arma la carpeta de entrega y su `.zip` a partir de `salida/` y `docs/` (`python docs/armar_entrega.py`, requiere `python-docx`) |
 | `docs/diagnostico_datos.md` | Diagnóstico de calidad de las fuentes |
 
